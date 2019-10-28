@@ -5,18 +5,14 @@ import java.util.Scanner;
 
 public class Solution {
     static int maxMin(int k, int[] arr) {
-        int sub[] = new int[k];
         int max, min;
         int fairness;
 
         Arrays.sort(arr);
         System.out.println(Arrays.toString(arr));
-        for(int i = 0; i < k; i++) {
-            sub[i] = arr[i];
-        }
 
-        max = getMax(sub);
-        min = getMin(sub);
+        max = arr[k-1];
+        min = arr[0];
 
         fairness = max - min;
         for(int i = k; i < arr.length; i++) {
@@ -28,17 +24,7 @@ public class Solution {
         }
         return fairness;
     }
-
-    static int getMax(int [] arr) {
-        Arrays.sort(arr);
-        return arr[arr.length-1];
-    }
-
-    static int getMin(int[] arr) {
-        Arrays.sort(arr);
-        return arr[0];
-    }
-
+    
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
